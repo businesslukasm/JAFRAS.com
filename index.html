@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publications - JAFRAS</title>
+    <title>JAFRAS - Journal Archive for Research & Academic Science</title>
     <style>
         * {
             margin: 0;
@@ -51,8 +51,6 @@
             font-size: 1.8rem;
             font-weight: bold;
             letter-spacing: 2px;
-            color: var(--white);
-            text-decoration: none;
         }
 
         .nav-links {
@@ -73,88 +71,180 @@
             opacity: 0.8;
         }
 
-        .page-header {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.95) 100%);
+        .hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.95) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f4f8" width="1200" height="600"/><g fill="%23cbd5e1" opacity="0.3"><circle cx="100" cy="100" r="80"/><circle cx="1100" cy="500" r="100"/><circle cx="600" cy="300" r="120"/></g></svg>');
+            background-size: cover;
+            background-position: center;
             color: var(--white);
-            padding: 4rem 2rem;
+            padding: 8rem 2rem;
             text-align: center;
         }
 
-        .page-header h1 {
-            font-size: 3rem;
+        .hero h1 {
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            letter-spacing: 1px;
         }
 
-        .page-header p {
-            font-size: 1.2rem;
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
             opacity: 0.9;
             font-family: 'Arial', sans-serif;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
         }
 
-        .search-filter {
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .section-title a:hover {
+            color: var(--accent);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-family: 'Arial', sans-serif;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .about-card {
             background: var(--light);
             padding: 2rem;
             border-radius: 12px;
-            margin-bottom: 3rem;
-            border: 2px solid var(--border);
+            border-left: 4px solid var(--accent);
         }
 
-        .search-box {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+        .about-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .search-input {
-            flex: 1;
-            padding: 0.75rem 1rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Arial', sans-serif;
-            background: var(--white);
-        }
-
-        .search-button {
-            padding: 0.75rem 2rem;
-            background: var(--accent);
-            color: var(--white);
-            border: none;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .search-button:hover {
-            background: var(--secondary);
-        }
-
-        .filters {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-select {
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            background: var(--white);
-            font-family: 'Arial', sans-serif;
-            cursor: pointer;
-        }
-
-        .publications-grid {
+        .process-steps {
             display: grid;
-            gap: 2rem;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .step {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--white);
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            transition: border-color 0.3s;
+        }
+
+        .step:hover {
+            border-color: var(--accent);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .recent-papers {
+            display: grid;
+            gap: 1.5rem;
         }
 
         .paper-card {
@@ -166,46 +256,21 @@
         }
 
         .paper-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .paper-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            margin-bottom: 1rem;
-        }
-
-        .paper-category {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         .paper-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--primary);
             margin-bottom: 0.5rem;
-            font-weight: bold;
         }
 
         .paper-authors {
             color: #64748b;
             font-style: italic;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             font-size: 0.95rem;
-        }
-
-        .paper-abstract {
-            color: var(--dark);
-            margin-bottom: 1rem;
-            line-height: 1.6;
         }
 
         .paper-meta {
@@ -214,71 +279,28 @@
             font-size: 0.9rem;
             color: #64748b;
             font-family: 'Arial', sans-serif;
-            flex-wrap: wrap;
         }
 
-        .paper-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
+        .view-all {
+            text-align: center;
+            margin-top: 2rem;
         }
 
-        .paper-actions {
-            margin-top: 1rem;
-            display: flex;
-            gap: 1rem;
-        }
-
-        .action-button {
-            padding: 0.5rem 1.5rem;
-            border: 2px solid var(--accent);
-            background: transparent;
-            color: var(--accent);
-            border-radius: 8px;
+        .view-all-link {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.75rem 2rem;
             text-decoration: none;
+            border-radius: 50px;
             font-family: 'Arial', sans-serif;
             font-weight: bold;
-            transition: all 0.3s;
-            display: inline-block;
+            transition: transform 0.3s, background 0.3s;
         }
 
-        .action-button:hover {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        .action-button.primary {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        .action-button.primary:hover {
+        .view-all-link:hover {
             background: var(--secondary);
-            border-color: var(--secondary);
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 3rem;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .page-number {
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--border);
-            background: var(--white);
-            color: var(--dark);
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s;
-        }
-
-        .page-number:hover, .page-number.active {
-            background: var(--accent);
-            color: var(--white);
-            border-color: var(--accent);
+            transform: translateY(-2px);
         }
 
         .footer {
@@ -326,20 +348,16 @@
                 font-size: 0.85rem;
             }
 
-            .page-header h1 {
-                font-size: 2rem;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .search-box {
-                flex-direction: column;
+            .about-grid {
+                grid-template-columns: 1fr;
             }
 
-            .filters {
-                flex-direction: column;
-            }
-
-            .paper-actions {
-                flex-direction: column;
+            .stats {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -347,218 +365,147 @@
 <body>
     <header class="header">
         <nav class="nav-container">
-            <a href="index.html" class="logo">JAFRAS</a>
+            <div class="logo">JAFRAS</div>
             <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#submit">Submit</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#submit">Submit</a></li>
                 <li><a href="publications.html">Publications</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="page-header">
-        <h1>Publications Archive</h1>
-        <p>Browse our collection of peer-reviewed research papers</p>
-    </div>
+    <section class="hero" id="home">
+        <h1>JAFRAS</h1>
+        <p class="subtitle">Journal Archive for Research & Academic Science</p>
+        <p class="tagline">An independent archive for scientific research papers</p>
+        <a href="#submit" class="cta-button">Submit Your Paper</a>
+    </section>
 
     <div class="container">
-        <div class="search-filter">
-            <div class="search-box">
-                <input type="text" class="search-input" placeholder="Search by title, author, or keywords...">
-                <button class="search-button">Search</button>
+        <section class="section">
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Published Papers</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">1,200+</span>
+                    <span class="stat-label">Citations</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">45+</span>
+                    <span class="stat-label">Countries</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">Open</span>
+                    <span class="stat-label">Access Journal</span>
+                </div>
             </div>
-            <div class="filters">
-                <select class="filter-select">
-                    <option>All Categories</option>
-                    <option>Environmental Science</option>
-                    <option>Neuroscience</option>
-                    <option>Economics</option>
-                    <option>Computer Science</option>
-                    <option>Medicine</option>
-                    <option>Physics</option>
-                </select>
-                <select class="filter-select">
-                    <option>Sort by: Newest First</option>
-                    <option>Sort by: Oldest First</option>
-                    <option>Sort by: Most Cited</option>
-                    <option>Sort by: Title A-Z</option>
-                </select>
-                <select class="filter-select">
-                    <option>Year: All</option>
-                    <option>2025</option>
-                    <option>2024</option>
-                    <option>2023</option>
-                    <option>2022</option>
-                </select>
-            </div>
-        </div>
+        </section>
 
-        <div class="publications-grid">
-            <div class="paper-card">
-                <div class="paper-header">
-                    <div>
-                        <span class="paper-category">Environmental Science</span>
+        <section class="section" id="about">
+            <h2 class="section-title">About JAFRAS</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Our Mission</h3>
+                    <p>JAFRAS is dedicated to disseminating high-quality scientific research across all disciplines. We believe in open access to academic knowledge and promote interdisciplinary collaboration.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Open Access</h3>
+                    <p>All articles published in JAFRAS are freely accessible. We are committed to science that is accessible to everyone and free from financial barriers.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Peer Review</h3>
+                    <p>Every submission undergoes a rigorous double-blind peer review process by international experts to ensure the highest scientific standards.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Interdisciplinary</h3>
+                    <p>From natural sciences to social sciences and humanities – JAFRAS welcomes research from all academic fields.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="submit">
+            <h2 class="section-title">Publication Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Submission</h3>
+                        <p>Submit your manuscript through our online portal. Ensure it complies with our formatting guidelines.</p>
                     </div>
                 </div>
-                <h3 class="paper-title">Machine Learning Approaches in Climate Change Prediction: A Comprehensive Review</h3>
-                <p class="paper-authors">Schmidt, M., Zhang, L., & Johnson, R.</p>
-                <p class="paper-abstract">
-                    This comprehensive review examines the application of machine learning algorithms in predicting climate change patterns. We analyze various methodologies including neural networks, ensemble methods, and deep learning approaches, highlighting their effectiveness in modeling complex climate systems and their potential for improving long-term forecasting accuracy.
-                </p>
-                <div class="paper-meta">
-                    <span>📅 November 2025</span>
-                    <span>📊 Vol. 12, Issue 4</span>
-                    <span>🔗 DOI: 10.xxxxx/jafras.2025.001</span>
-                    <span>📖 25 pages</span>
-                    <span>⭐ 45 citations</span>
-                </div>
-                <div class="paper-actions">
-                    <a href="#" class="action-button primary">Read Full Paper</a>
-                    <a href="#" class="action-button">Download PDF</a>
-                    <a href="#" class="action-button">Cite This</a>
-                </div>
-            </div>
-
-            <div class="paper-card">
-                <div class="paper-header">
-                    <div>
-                        <span class="paper-category">Neuroscience</span>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Initial Review</h3>
+                        <p>The editorial team reviews your paper for completeness, relevance, and alignment with our scope. Feedback within 5 business days.</p>
                     </div>
                 </div>
-                <h3 class="paper-title">Neuroplasticity and Cognitive Enhancement Through Meditation Practices</h3>
-                <p class="paper-authors">Patel, A., Müller, K., & Anderson, S.</p>
-                <p class="paper-abstract">
-                    This study investigates the neurological mechanisms underlying cognitive enhancement through regular meditation practices. Using fMRI and EEG data from 150 participants over 12 months, we demonstrate significant structural and functional changes in brain regions associated with attention, memory, and emotional regulation.
-                </p>
-                <div class="paper-meta">
-                    <span>📅 October 2025</span>
-                    <span>📊 Vol. 12, Issue 3</span>
-                    <span>🔗 DOI: 10.xxxxx/jafras.2025.002</span>
-                    <span>📖 32 pages</span>
-                    <span>⭐ 38 citations</span>
-                </div>
-                <div class="paper-actions">
-                    <a href="#" class="action-button primary">Read Full Paper</a>
-                    <a href="#" class="action-button">Download PDF</a>
-                    <a href="#" class="action-button">Cite This</a>
-                </div>
-            </div>
-
-            <div class="paper-card">
-                <div class="paper-header">
-                    <div>
-                        <span class="paper-category">Economics</span>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Peer Review</h3>
+                        <p>Your manuscript is sent to at least two independent reviewers. The review process typically takes 4-6 weeks.</p>
                     </div>
                 </div>
-                <h3 class="paper-title">Economic Impact of Digital Transformation in Small and Medium Enterprises</h3>
-                <p class="paper-authors">Weber, T., Chen, Y., & López, M.</p>
-                <p class="paper-abstract">
-                    This research analyzes the economic effects of digital transformation initiatives in SMEs across 25 countries. Through quantitative analysis of 1,200 companies, we identify key success factors, common barriers, and measurable ROI indicators that influence digital adoption outcomes and business performance.
-                </p>
-                <div class="paper-meta">
-                    <span>📅 October 2025</span>
-                    <span>📊 Vol. 12, Issue 3</span>
-                    <span>🔗 DOI: 10.xxxxx/jafras.2025.003</span>
-                    <span>📖 28 pages</span>
-                    <span>⭐ 52 citations</span>
-                </div>
-                <div class="paper-actions">
-                    <a href="#" class="action-button primary">Read Full Paper</a>
-                    <a href="#" class="action-button">Download PDF</a>
-                    <a href="#" class="action-button">Cite This</a>
-                </div>
-            </div>
-
-            <div class="paper-card">
-                <div class="paper-header">
-                    <div>
-                        <span class="paper-category">Computer Science</span>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Revision & Decision</h3>
+                        <p>You receive the reviews and can submit a revised version if needed. The final decision is made after revision.</p>
                     </div>
                 </div>
-                <h3 class="paper-title">Quantum Computing Applications in Cryptography: Challenges and Opportunities</h3>
-                <p class="paper-authors">Williams, J., Nakamura, H., & O'Brien, L.</p>
-                <p class="paper-abstract">
-                    We examine the implications of quantum computing advancements on modern cryptographic systems. This paper presents novel quantum-resistant algorithms and evaluates their performance characteristics, providing a roadmap for transitioning to post-quantum cryptography in critical infrastructure systems.
-                </p>
-                <div class="paper-meta">
-                    <span>📅 September 2025</span>
-                    <span>📊 Vol. 12, Issue 2</span>
-                    <span>🔗 DOI: 10.xxxxx/jafras.2025.004</span>
-                    <span>📖 41 pages</span>
-                    <span>⭐ 67 citations</span>
-                </div>
-                <div class="paper-actions">
-                    <a href="#" class="action-button primary">Read Full Paper</a>
-                    <a href="#" class="action-button">Download PDF</a>
-                    <a href="#" class="action-button">Cite This</a>
-                </div>
-            </div>
-
-            <div class="paper-card">
-                <div class="paper-header">
-                    <div>
-                        <span class="paper-category">Medicine</span>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Publication</h3>
+                        <p>Upon acceptance, your paper is formatted, receives a DOI, and is published in the next available issue.</p>
                     </div>
                 </div>
-                <h3 class="paper-title">Personalized Medicine Approaches in Cancer Treatment: A Meta-Analysis</h3>
-                <p class="paper-authors">Rodriguez, C., Kim, S., & Thompson, M.</p>
-                <p class="paper-abstract">
-                    This meta-analysis evaluates the efficacy of personalized medicine approaches in cancer treatment across 89 clinical trials. We analyze genomic profiling methods, targeted therapy outcomes, and patient survival rates, demonstrating significant improvements in treatment effectiveness through individualized approaches.
-                </p>
-                <div class="paper-meta">
-                    <span>📅 September 2025</span>
-                    <span>📊 Vol. 12, Issue 2</span>
-                    <span>🔗 DOI: 10.xxxxx/jafras.2025.005</span>
-                    <span>📖 36 pages</span>
-                    <span>⭐ 91 citations</span>
-                </div>
-                <div class="paper-actions">
-                    <a href="#" class="action-button primary">Read Full Paper</a>
-                    <a href="#" class="action-button">Download PDF</a>
-                    <a href="#" class="action-button">Cite This</a>
-                </div>
             </div>
+        </section>
 
-            <div class="paper-card">
-                <div class="paper-header">
-                    <div>
-                        <span class="paper-category">Physics</span>
+        <section class="section" id="papers">
+            <h2 class="section-title"><a href="publications.html">Recent Publications</a></h2>
+            <div class="recent-papers">
+                <div class="paper-card">
+                    <h3 class="paper-title">Machine Learning Approaches in Climate Change Prediction: A Comprehensive Review</h3>
+                    <p class="paper-authors">Schmidt, M., Zhang, L., & Johnson, R.</p>
+                    <div class="paper-meta">
+                        <span>📅 Nov 2025</span>
+                        <span>📊 Environmental Science</span>
+                        <span>🔗 DOI: 10.xxxxx/jafras.2025.001</span>
                     </div>
                 </div>
-                <h3 class="paper-title">Novel Approaches to Dark Matter Detection Using Advanced Particle Accelerators</h3>
-                <p class="paper-authors">Bergman, E., Kowalski, P., & Yamamoto, T.</p>
-                <p class="paper-abstract">
-                    We present innovative methodologies for detecting dark matter particles using next-generation particle accelerators. Our theoretical framework and experimental protocols offer new pathways for identifying weakly interacting massive particles (WIMPs) and exploring the nature of dark matter composition.
-                </p>
-                <div class="paper-meta">
-                    <span>📅 August 2025</span>
-                    <span>📊 Vol. 12, Issue 1</span>
-                    <span>🔗 DOI: 10.xxxxx/jafras.2025.006</span>
-                    <span>📖 44 pages</span>
-                    <span>⭐ 78 citations</span>
+                <div class="paper-card">
+                    <h3 class="paper-title">Neuroplasticity and Cognitive Enhancement Through Meditation Practices</h3>
+                    <p class="paper-authors">Patel, A., Müller, K., & Anderson, S.</p>
+                    <div class="paper-meta">
+                        <span>📅 Oct 2025</span>
+                        <span>🧠 Neuroscience</span>
+                        <span>🔗 DOI: 10.xxxxx/jafras.2025.002</span>
+                    </div>
                 </div>
-                <div class="paper-actions">
-                    <a href="#" class="action-button primary">Read Full Paper</a>
-                    <a href="#" class="action-button">Download PDF</a>
-                    <a href="#" class="action-button">Cite This</a>
+                <div class="paper-card">
+                    <h3 class="paper-title">Economic Impact of Digital Transformation in Small and Medium Enterprises</h3>
+                    <p class="paper-authors">Weber, T., Chen, Y., & López, M.</p>
+                    <div class="paper-meta">
+                        <span>📅 Oct 2025</span>
+                        <span>💼 Economics</span>
+                        <span>🔗 DOI: 10.xxxxx/jafras.2025.003</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="pagination">
-            <a href="#" class="page-number active">1</a>
-            <a href="#" class="page-number">2</a>
-            <a href="#" class="page-number">3</a>
-            <a href="#" class="page-number">4</a>
-            <a href="#" class="page-number">5</a>
-            <a href="#" class="page-number">...</a>
-            <a href="#" class="page-number">42</a>
-        </div>
+            <div class="view-all">
+                <a href="publications.html" class="view-all-link">View All Publications</a>
+            </div>
+        </section>
     </div>
 
-    <footer class="footer">
+    <footer class="footer" id="contact">
         <div class="footer-content">
             <div>
                 <h3>JAFRAS</h3>
@@ -568,8 +515,8 @@
             <div>
                 <h3>Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="index.html#submit">Submission</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#submit">Submission</a></li>
                     <li><a href="#">Author Guidelines</a></li>
                     <li><a href="#">Editorial Board</a></li>
                     <li><a href="#">Ethics Policy</a></li>
@@ -595,7 +542,21 @@
     </footer>
 
     <script>
-        // Animation on scroll
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -610,7 +571,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.paper-card').forEach(el => {
+        document.querySelectorAll('.stat-card, .about-card, .step, .paper-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.6s, transform 0.6s';
